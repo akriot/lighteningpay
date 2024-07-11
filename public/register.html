@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoinOS Register</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="register-container">
+        <img src="/images/logo.png" alt="CoinOS Logo" class="logo">
+        <form id="registerForm">
+            <img src="/images/profile.png" alt="Profile Picture" class="profile-pic">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            <p>We recommend using a long, random password if you intend to keep funds in your account.</p>
+            <button type="submit">Register</button>
+            <p>Already have an account? <a href="/">Sign In</a></p>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./js/register.js"></script>
+</body>
+</html>

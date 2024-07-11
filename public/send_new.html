@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coinos - Send Funds</title>
+    <link rel="stylesheet" href="./css/styles_new.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <style>
+        .profile, .heading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .profile-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .form {
+            display: none;
+        }
+        #form1Btn, #form2Btn {
+            width: 50% !important;
+            margin: 10px;
+            display: inline-block !important;
+            text-align: center;
+            padding: 10px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+        .button-container{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header id="menu"></header>
+        <main>
+            <div class="profile">
+                <img src="https://img.freepik.com/premium-vector/young-smiling-man-avatar-man-with-brown-beard-mustache-hair-wearing-yellow-sweater-sweatshirt-3d-vector-people-character-illustration-cartoon-minimal-style_365941-860.jpg" alt="Profile" class="profile-image">
+            </div>
+            <h2 class="heading">Send Funds</h2>
+            <div class="button-container">
+                <button id="form1Btn">Paste Lightening Invoice</button>
+                <button id="form2Btn">To Username</button>
+            </div>
+            <form class="form" id="sendForm">
+                <div class="input-group">
+                    <input type="text" id="address" name="address" placeholder="Enter/Paste Lightening Invoice">
+                </div>
+                <button type="submit" class="submit-btn">Next</button>
+            </form>
+            <form class="form" id="sendToUsernameForm">
+                <div class="input-group">
+                    <input type="text" id="username" name="username" placeholder="Enter an username">
+                    <input type="text" name="amount" id="amount" placeholder="Enter amount" style="margin-top: 5px;">
+                </div>
+                <button type="submit" class="submit-btn">Next</button>
+            </form>
+        </main>
+    </div>
+</body>
+<footer id="footer">
+
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="./js/send.js"></script>
+</html>

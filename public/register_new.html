@@ -1,0 +1,101 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coinos Registration</title>
+    <link rel="stylesheet" href="./css/register.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="https://coinos.io/icons/logo.svg" alt="Coinos Logo" class="logo">
+        </header>
+        <main>
+            <div class="card">
+                <form id="registerForm">
+                    <div class="input-group">
+                        <input type="text" id="username" name= "username" placeholder="Username" required>
+                        <button type="button" class="input-icon">🎲</button>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="password" name= "password" placeholder="Password" required>
+                        <button type="button" class="input-icon">👁️</button>
+                    </div>
+                    <p class="password-info">We recommend using a long, random password if you intend to keep funds in your account.</p>
+                    <button type="submit" class="register-btn" >Register</button>
+                </form>
+                <p class="sign-in-link">Already have an account? <a href="/">Sign in</a></p>
+            </div>
+        </main>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="./js/register.js"></script>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coinos Registration</title>
+    <link rel="stylesheet" href="./css/register.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="https://coinos.io/icons/logo.svg" alt="Coinos Logo" class="logo">
+        </header>
+        <main>
+            <div class="card">
+                <form id="registerForm">
+                    <div class="input-group">
+                        <input type="text" id="username" name="username" placeholder="Username" required>
+                        <button type="button" class="input-icon">🎲</button>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="password" name="password" placeholder="Password" required>
+                        <button type="button" class="input-icon">👁️</button>
+                    </div>
+                    <div class="input-group">
+                        <label for="avatar">Upload Avatar:</label>
+                        <input type="file" id="avatar" name="avatar" accept="image/*" required>
+                    </div>
+                    <p class="password-info">We recommend using a long, random password if you intend to keep funds in your account.</p>
+                    <button type="submit" class="register-btn">Register</button>
+                </form>
+                <p class="sign-in-link">Already have an account? <a href="/">Sign in</a></p>
+                <div id="message"></div>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const formData = new FormData();
+            formData.append('username', document.getElementById('username').value);
+            formData.append('password', document.getElementById('password').value);
+            formData.append('avatar', document.getElementById('avatar').files[0]);
+
+            try {
+                const response = await axios.post('/api/register', formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                });
+                const result = await response.data;
+
+                if (response.status === 200) {
+                    document.getElementById('message').innerText = 'Registration successful!';
+                } else {
+                    document.getElementById('message').innerText = `Error: ${result.message}`;
+                }
+            } catch (error) {
+                document.getElementById('message').innerText = `Error: ${error.message}`;
+            }
+        });
+    </script>
+</body>
+</html>

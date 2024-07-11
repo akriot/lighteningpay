@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coinos - Receive Funds</title>
+    <link rel="stylesheet" href="./css/styles_new.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <style>
+        .profile, .heading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .profile-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .container-success {
+            display: flex;
+            border: 1px solid #ccc;
+            padding: 10px;
+            visibility: hidden;
+            flex-direction: row; /* Default to row for larger screens */
+        }
+
+        .text-part, .image-part {
+            flex: 1;
+            margin: 10px;
+            max-height: 250px;
+        }
+
+        .text-part {
+            overflow-y: auto;
+        }
+
+        .text-part p {
+            word-wrap: break-word;
+        }
+
+        .text-part button {
+            display: block;
+            margin-top: 10px;
+        }
+
+        /* Media query for small screens */
+        @media (max-width: 600px) {
+            .container-success {
+                flex-direction: column; /* Stack items vertically on small screens */
+            }
+
+            .text-part, .image-part {
+                max-height: none; /* Remove max-height restriction */
+                margin: 5px 0; /* Adjust margins for vertical stacking */
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header id="menu"></header>
+        <main>
+            <div class="profile">
+                <img src="https://img.freepik.com/premium-vector/young-smiling-man-avatar-man-with-brown-beard-mustache-hair-wearing-yellow-sweater-sweatshirt-3d-vector-people-character-illustration-cartoon-minimal-style_365941-860.jpg" alt="Profile" class="profile-image">
+            </div>
+            <h2 class="heading">Receive Funds</h2>
+            <form id="receiveForm">
+                <div class="input-group">
+                    <input type="text"  id="amount" name="amount" placeholder="Enter amount to receive" required>
+                </div>
+                <button type="submit" class="submit-btn">Next</button>
+            </form>
+            <div class="container-success">
+                <div class="text-part">
+                    <p id="text-to-copy"></p>
+                    <button class="submit-btn" onclick="copyText()">Copy Text</button>
+                </div>
+                <div class="image-part">
+                    <img src="" alt="Example" id="qr-code" style="max-height: inherit;">
+                </div>
+            </div>
+
+        </main>
+    </div>
+</body>
+<footer id="footer">
+
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="./js/receive.js"></script>
+</html>

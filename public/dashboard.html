@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoinOS Dashboard</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>Welcome, <span id="username">User</span></h1>
+        <p>Balance: <span id="balance">0</span></p>
+        <button onclick="location.href='/send'">Send</button>
+        <button onclick="location.href='/receive'">Receive</button>
+        <button onclick="logout()">Logout</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./js/dashboard.js"></script>
+</body>
+</html>

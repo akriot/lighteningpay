@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Forms</title>
+    <style>
+        .container {
+            text-align: center;
+            margin: 50px auto;
+        }
+
+        .form {
+            display: none;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-top: 10px;
+        }
+
+        .form h2 {
+            margin-bottom: 10px;
+        }
+
+        button {
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <button id="form1Btn">Open Form 1</button>
+        <div id="form1" class="form">
+            <h2>Form 1</h2>
+            <form onsubmit="return submitForm1()">
+                <input type="text" name="name" placeholder="Enter Name">
+                <button type="submit">Submit Form 1</button>
+            </form>
+        </div>
+        <button id="form2Btn">Open Form 2</button>
+        <div id="form2" class="form">
+            <h2>Form 2</h2>
+            <form onsubmit="return submitForm2()">
+                <input type="email" name="email" placeholder="Enter Email">
+                <button type="submit">Submit Form 2</button>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+<script>
+    function showForm(formId) {
+            const form1 = document.getElementById("form1");
+            const form2 = document.getElementById("form2");
+
+            form1.style.display = formId === "form1" ? "block" : "none";
+            form2.style.display = formId === "form2" ? "block" : "none";
+        }
+
+        function submitForm1(event) {
+            // Prevent default form submission behavior
+            event.preventDefault();
+
+            // Your form 1 submission logic here
+            alert("Form 1 submitted!");
+
+            return false;
+        }
+
+        function submitForm2(event) {
+            // Prevent default form submission behavior
+            event.preventDefault();
+
+            // Your form 2 submission logic here
+            alert("Form 2 submitted!");
+
+            return false;
+        }
+
+        // Initial load, hide both forms
+        showForm(null);
+
+        // Attach click events to buttons
+        const form1Btn = document.getElementById("form1Btn");
+        const form2Btn = document.getElementById("form2Btn");
+
+        form1Btn.addEventListener("click", function () {
+            showForm("form1");
+        });
+
+        form2Btn.addEventListener("click", function () {
+            showForm("form2");
+        });
+
+</script>
+</html>
